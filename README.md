@@ -1,7 +1,8 @@
 **FiveM ESX Script**
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/88593228/194673057-d996b416-4af0-445e-a958-4dd9910cc7bb.gif)
 
-Script que
+Ao entrar na água os itens electronicos (definidos no config) ficam estragados, que darão origem a outros itens (definidos no config).
 
 Caso não tenha os itens pode usar o sql a baixo.
 ## SQL
