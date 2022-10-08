@@ -16,5 +16,5 @@ INSERT INTO items (name, label) VALUES ('radio', 'Rádio');
 INSERT INTO items (name, label) VALUES ('radio_used', 'Rádio Estragado');
 
 ## Dependências
--zcmg_notificacao
+-zcmg_notificacao<br/>
 -zcmg_barra
