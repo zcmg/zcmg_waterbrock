@@ -1,9 +1,11 @@
+local reparar = false
+
 Citizen.CreateThread(function()
     local ligado = false
     
     while true do
         local PlayerPed = PlayerPedId()
-        local wait = 1000
+        local wait = 500
         local coords = GetEntityCoords(PlayerPed)
         if Vdist(coords.x,coords.y,coords.z, Config.Blip.x,Config.Blip.y,Config.Blip.z) <= Config.BlipDistancia then
             wait=1
@@ -18,13 +20,19 @@ Citizen.CreateThread(function()
                     local x,y,z = table.unpack(GetEntityCoords(PlayerPed))
 
                     ESX.TriggerServerCallback('zcmg_waterbrock:verificaritens', function(cb)
-                        if cb then
-                            ESX.Streaming.RequestAnimDict(anim_lib, function()
-                                TaskPlayAnim(PlayerPed, anim_lib, anim_dict, 8.0, -8.0, -1, 0, 0, false, false, false)
-                                    exports['zcmg_barra']:Iniciar(Config.RepairTime,'A reparar...', true)
+                        if cb > 0 then
+                            if not reparar then
+                                reparar = true
+                                ESX.Streaming.RequestAnimDict(anim_lib, function()
+                                    TaskPlayAnim(PlayerPed, anim_lib, anim_dict, 8.0, -8.0, -1, 1, 0, false, false, false)
+                                    FreezeEntityPosition(PlayerPed, true)
+                                    exports['zcmg_barra']:Iniciar(Config.RepairTime*cb,'A reparar...', true)
                                     ClearPedTasks(PlayerPed)
+                                    FreezeEntityPosition(PlayerPed, false)
                                     TriggerServerEvent('zcmg_waterbrock:reparar')
-                            end)
+                                    reparar = false
+                                end)
+                            end
                         else
                             exports['zcmg_notificacao']:Alerta("REPARAÇÃO", "Não tem itens para reparação.", 5000, 'erro')
                         end
@@ -43,4 +51,16 @@ Citizen.CreateThread(function()
         end
         Citizen.Wait(wait)
     end
+end)
+
+Citizen.CreateThread(function()
+    while true do 
+        local wait = 1000        
+        
+        if reparar then
+            wait = 0   
+            DisableAllControlActions(0)
+        end 
+        Citizen.Wait(wait)
+	end
 end)

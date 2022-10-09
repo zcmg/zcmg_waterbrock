@@ -7,7 +7,7 @@ Config.Itens = {
 }
 
 -- Tempo de reparação
-Config.RepairTime = 5000 
+Config.RepairTime = 2500 
 
 -- Blip de Reparação
 Config.Blip = { x = 1275.28, y =-1710.67, z= 53.80 }

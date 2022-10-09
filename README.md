@@ -4,7 +4,7 @@
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/88593228/194711579-28c43a68-ad8d-486e-a5f6-46a2aa9f5600.gif)
 
 Ao entrar na água os itens electronicos (definidos no config) ficam estragados, que darão origem a outros itens (definidos no config).
-Possivelidade de reparar os itens avariados.
+Possibilidade de reparar os itens avariados.
 
 Caso não tenha os itens pode usar o sql a baixo.
 ## SQL
