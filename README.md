@@ -9,10 +9,10 @@ Possibilidade de reparar os itens avariados.
 Caso não tenha os itens pode usar o sql a baixo.
 ## SQL
 
-INSERT INTO items (name, label) VALUES ('phone', 'Telemóvel');</br>
-INSERT INTO items (name, label) VALUES ('phone_used', 'Telemóvel Estragado');</br>
-INSERT INTO items (name, label) VALUES ('radio', 'Rádio');</br>
-INSERT INTO items (name, label) VALUES ('radio_used', 'Rádio Estragado');</br>
+``INSERT INTO items (name, label) VALUES ('phone', 'Telemóvel');``<br/>
+``INSERT INTO items (name, label) VALUES ('phone_used', 'Telemóvel Estragado');``<br/>
+``INSERT INTO items (name, label) VALUES ('radio', 'Rádio');``<br/>
+``INSERT INTO items (name, label) VALUES ('radio_used', 'Rádio Estragado');``
 
 ## Dependências
 -zcmg_notificacao</br>
